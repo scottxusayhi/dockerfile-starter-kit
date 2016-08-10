@@ -1,12 +1,14 @@
 # common
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 GIT_BRANCH=$(cd ${SCRIPT_DIR} && git rev-parse --abbrev-ref HEAD)
+# practically you need to load KMX_VERSION from a global file in the root dir of KMX project
+KMX_VERSION=0.3.1
 
 # customize your image here
 IMAGE_NAME=dev.k2data.com.cn:5001/k2data/ubuntu
 IMAGE_TAG_PREFIX=${GIT_BRANCH}
-IMAGE_VERSION=0.3.1
-IMAGE_TAG_SUFFIX=5.6.29
+IMAGE_VERSION=${KMX_VERSION}
+IMAGE_TAG_SUFFIX=14.04
 
 
 # uncomment if you don't want release this image
