@@ -4,5 +4,3 @@ SCRIPT_DIR=$(dirname $(readlink -e $0))
 
 set -x
 docker build -t ${IMAGE} ${SCRIPT_DIR}
-set +x
-echo ${IMAGE}

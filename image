@@ -1,7 +1,13 @@
+# common
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GIT_BRANCH=$(cd ${SCRIPT_DIR} && git rev-parse --abbrev-ref HEAD)
+
 # customize your image here
-IMAGE_NAME=dev.k2data.com.cn:5001/k2data/busybox
-IMAGE_TAG=0.3.1
+IMAGE_NAME=dev.k2data.com.cn:5001/k2data/ubuntu
+IMAGE_TAG_PREFIX=${GIT_BRANCH}
+IMAGE_VERSION=0.3.1
 IMAGE_TAG_SUFFIX=5.6.29
+
 
 # uncomment if you don't want release this image
 # RELEASE=false
@@ -13,6 +19,10 @@ IMAGE_TAG_SUFFIX=5.6.29
 #. ${PROJECT_DIR}/VERSION
 
 test -z ${IMAGE_NAME} && echo "Missing parameter IMAGE_NAME" && exit 1
-test -z ${IMAGE_TAG} && echo "Missing parameter IMAGE_TAG" && exit 1
-test -z ${IMAGE_TAG_SUFFIX} && IMAGE=${IMAGE_NAME}:${IMAGE_TAG} || IMAGE=${IMAGE_NAME}:${IMAGE_TAG}-${IMAGE_TAG_SUFFIX}
+test -z ${IMAGE_VERSION} && echo "Missing parameter IMAGE_VERSION" && exit 1
+
+test ! -z ${IMAGE_TAG_PREFIX} && IMAGE_TAG=${IMAGE_TAG_PREFIX}-${IMAGE_VERSION}
+test ! -z ${IMAGE_TAG_SUFFIX} && IMAGE_TAG=${IMAGE_TAG}-${IMAGE_TAG_SUFFIX}
+IMAGE=${IMAGE_NAME}:${IMAGE_TAG}
+echo ${IMAGE}
 
