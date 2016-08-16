@@ -10,5 +10,4 @@ fi
 set -x
 ENV_FILE=$1
 shift
-IMAGE=${IMAGE} ENV_FILE=${ENV_FILE} docker-compose -f ${SCRIPT_DIR}/docker-compose-full-example.yml up $*
-
+echo $*
