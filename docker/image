@@ -1,0 +1,24 @@
+# common
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GIT_BRANCH=$(cd ${SCRIPT_DIR} && git rev-parse --abbrev-ref HEAD)
+
+# customize your image here
+IMAGE_REGISTRY=${IMAGE_REGISTRY:-"dev.k2data.com.cn:5001"}
+IMAGE_NAME=${IMAGE_NAME:-"k2data/ubuntu"}
+IMAGE_TAG_PREFIX=${IMAGE_TAG_PREFIX:-${GIT_BRANCH}}
+IMAGE_TAG=${IMAGE_TAG:-"tag"}
+IMAGE_TAG_SUFFIX=${IMAGE_TAG_SUFFIX:-"14.04"}
+
+
+# uncomment if you don't want release this image
+# RELEASE=false
+
+test -z ${IMAGE_REGISTRY} && echo "Missing parameter IMAGE_REGISTRY" && exit 1
+test -z ${IMAGE_NAME} && echo "Missing parameter IMAGE_NAME" && exit 1
+test -z ${IMAGE_TAG} && echo "Missing parameter IMAGE_TAG" && exit 1
+
+test ! -z ${IMAGE_TAG_PREFIX} && IMAGE_TAG_FULL=${IMAGE_TAG_PREFIX}-${IMAGE_VERSION}
+test ! -z ${IMAGE_TAG_SUFFIX} && IMAGE_TAG_FULL=${IMAGE_TAG}-${IMAGE_TAG_SUFFIX}
+IMAGE=${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG_FULL}
+echo ${IMAGE}
+

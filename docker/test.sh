@@ -7,7 +7,7 @@ if [ $# -lt 1 ]; then
     exit -1
 fi
 
-set -x
+set -ex
 ENV_FILE=$1
 shift
 echo $*

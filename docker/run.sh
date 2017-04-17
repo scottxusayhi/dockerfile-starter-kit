@@ -7,8 +7,7 @@ if [ $# -lt 1 ]; then
     exit -1
 fi
 
-set -x
+set -ex
 ENV_FILE=$1
 shift
-IMAGE=${IMAGE} ENV_FILE=${ENV_FILE} docker-compose -f ${SCRIPT_DIR}/docker-compose-full-example.yml up $*
-
+IMAGE=${IMAGE} ENV_FILE=${ENV_FILE} docker-compose -f ${SCRIPT_DIR}/docker-compose.yml up $*
