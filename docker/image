@@ -7,7 +7,7 @@ IMAGE_REGISTRY=${IMAGE_REGISTRY:-"dev.k2data.com.cn:5001"}
 IMAGE_NAME=${IMAGE_NAME:-"k2data/ubuntu"}
 IMAGE_TAG_PREFIX=${IMAGE_TAG_PREFIX:-${GIT_BRANCH}}
 IMAGE_TAG=${IMAGE_TAG:-"tag"}
-IMAGE_TAG_SUFFIX=${IMAGE_TAG_SUFFIX:-"14.04"}
+IMAGE_TAG_SUFFIX=${IMAGE_TAG_SUFFIX:-"suffix"}
 
 
 # uncomment if you don't want release this image
