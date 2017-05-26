@@ -7,4 +7,4 @@ service1:
   env_file: ${ENV_FILE}
   environment:
     HELLO: WORLD
-  command: echo hello k2
+  command: env
