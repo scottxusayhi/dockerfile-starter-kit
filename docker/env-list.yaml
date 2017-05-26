@@ -1,0 +1,25 @@
+envs:
+- name: FOO
+  type: int
+  required: true
+  desc: the FOO parameter is very important
+- name: PARAMETER2
+  type: int
+  required: false
+  default: 1
+  desc: an optional int parameter
+- name: PARAMETER3
+  required: false
+  type: string
+  default: default value
+  desc: 字符串参数
+- name: PARAMETER4
+  required: false
+  type: string
+  default: "1"
+  desc: 加双引号才是字符串的1，否则就是int了
+- name: PARAMETER5
+  required: false
+  type: float
+  default: 3.1415926
+  desc: 字符串参数

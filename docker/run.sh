@@ -9,5 +9,6 @@ fi
 
 set -e
 ENV_FILE=$1
+python ${SCRIPT_DIR}/_check_env.py $ENV_FILE
 shift
 IMAGE=${IMAGE} ENV_FILE=${ENV_FILE} docker-compose -f ${SCRIPT_DIR}/docker-compose.yml up $*
