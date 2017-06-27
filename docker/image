@@ -1,7 +1,7 @@
 # common
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 GIT_BRANCH=$(cd ${SCRIPT_DIR} && git rev-parse --abbrev-ref HEAD)
-GIT_USER_NAME=$(cd ${SCRIPT_DIR} && git --get user.name)
+GIT_USER_NAME=$(cd ${SCRIPT_DIR} && git config --get user.name)
 # customize your image here
 
 IMAGE_OWNER=${IMAGE_OWNER:-${GIT_USER_NAME}}
